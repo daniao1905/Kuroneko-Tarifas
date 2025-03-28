@@ -1,5 +1,4 @@
-flask
+streamlit
 selenium
 beautifulsoup4
-requests
-streamlit
+requests lo
