@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifa Calculada</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Resultado</h1>
+    <p>La tarifa de envío es: <strong>{{ tarifa }}</strong></p>
+    <a href="/">Calcular otra tarifa</a>
+</body>
+</html>
