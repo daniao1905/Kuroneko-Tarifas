@@ -1,19 +1,15 @@
-from flask import Flask, render_template, request
+import streamlit as st
 from scraper import obtener_tarifa_zona
 
-app = Flask(__name__)
+st.title("📦 Calculador de Tarifas de Envío - Kuroneko Yamato")
 
-@app.route("/", methods=["GET", "POST"])
-def index():
-    if request.method == "POST":
-        peso = request.form["peso"]
-        origen = request.form["origen"]
-        destino = request.form["destino"]
-        
+peso = st.number_input("Peso (kg):", min_value=0.1, step=0.1)
+origen = st.text_input("Zona de Origen:")
+destino = st.text_input("Zona de Destino:")
+
+if st.button("Calcular Tarifa"):
+    if peso and origen and destino:
         tarifa = obtener_tarifa_zona(peso, origen, destino)
-        return render_template("resultado.html", tarifa=tarifa)
-    
-    return render_template("index.html")
-
-if __name__ == "__main__":
-    app.run(debug=True)
+        st.success(f"💰 Tarifa estimada: {tarifa}")
+    else:
+        st.error("⚠️ Por favor, ingrese todos los datos.")
