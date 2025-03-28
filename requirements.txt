@@ -1,4 +1,4 @@
 streamlit
 selenium
 beautifulsoup4
-requests lo
+requests
